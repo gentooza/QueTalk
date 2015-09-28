@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>250</width>
+    <height>499</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QTalk</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="application.qrc">
+    <normaloff>:/images/im-user.png</normaloff>:/images/im-user.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>4</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget"/>
+    </item>
+    <item>
+     <widget class="QWidget" name="bottomWrap" native="true"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QComboBox" name="presenceComboBox">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>Online</string>
+         </property>
+         <property name="icon">
+          <iconset resource="application.qrc">
+           <normaloff>:/images/im-user.png</normaloff>:/images/im-user.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Chat</string>
+         </property>
+         <property name="icon">
+          <iconset resource="application.qrc">
+           <normaloff>:/images/im-user.png</normaloff>:/images/im-user.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Away</string>
+         </property>
+         <property name="icon">
+          <iconset resource="application.qrc">
+           <normaloff>:/images/im-user-away.png</normaloff>:/images/im-user-away.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Extended Away</string>
+         </property>
+         <property name="icon">
+          <iconset resource="application.qrc">
+           <normaloff>:/images/im-user-away.png</normaloff>:/images/im-user-away.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Do Not Disturb</string>
+         </property>
+         <property name="icon">
+          <iconset resource="application.qrc">
+           <normaloff>:/images/im-user-busy.png</normaloff>:/images/im-user-busy.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Offline</string>
+         </property>
+         <property name="icon">
+          <iconset resource="application.qrc">
+           <normaloff>:/images/im-user-offline.png</normaloff>:/images/im-user-offline.png</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="showInfoEventButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="application.qrc">
+          <normaloff>:/images/preferences-system-power-management.png</normaloff>:/images/preferences-system-power-management.png</iconset>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonFollowStyle</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>250</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionQt"/>
+   </widget>
+   <widget class="QMenu" name="menu_Settings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="actionHideOffline"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menu_X_MPP">
+    <property name="title">
+     <string>&amp;Action</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionAddContact"/>
+    <addaction name="actionTransferManager"/>
+    <addaction name="separator"/>
+    <addaction name="actionLogout"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menu_X_MPP"/>
+   <addaction name="menu_Settings"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/preferences-system.png</normaloff>:/images/preferences-system.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionQt">
+   <property name="text">
+    <string>&amp;Qt</string>
+   </property>
+  </action>
+  <action name="actionAddContact">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/contact-new.png</normaloff>:/images/contact-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Add Contact</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Contact</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/system-shutdown.png</normaloff>:/images/system-shutdown.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+  <action name="actionHideOffline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/user-identity-grey.png</normaloff>:/images/user-identity-grey.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hide Offline Contact</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/system-log-out.png</normaloff>:/images/system-log-out.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Logout</string>
+   </property>
+  </action>
+  <action name="actionTransferManager">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/network-server-database.png</normaloff>:/images/network-server-database.png</iconset>
+   </property>
+   <property name="text">
+    <string>TransferManager</string>
+   </property>
+  </action>
+  <action name="actionRemoveContact">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/list-remove.png</normaloff>:/images/list-remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Contact</string>
+   </property>
+  </action>
+  <action name="actionStartChat">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/mail-message-new.png</normaloff>:/images/mail-message-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>Start Chat</string>
+   </property>
+  </action>
+  <action name="actionContactInfo">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/preferences-desktop-user.png</normaloff>:/images/preferences-desktop-user.png</iconset>
+   </property>
+   <property name="text">
+    <string>Contact Info</string>
+   </property>
+  </action>
+  <action name="actionUnsubscribe">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/im-ban-user.png</normaloff>:/images/im-ban-user.png</iconset>
+   </property>
+   <property name="text">
+    <string>Unsubscribe</string>
+   </property>
+   <property name="toolTip">
+    <string>Unsubscribe roster's status</string>
+   </property>
+  </action>
+  <action name="actionDropSubscribe">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/im-kick-user.png</normaloff>:/images/im-kick-user.png</iconset>
+   </property>
+   <property name="text">
+    <string>Drop Subscribe</string>
+   </property>
+   <property name="toolTip">
+    <string>Don't send self status to roster</string>
+   </property>
+  </action>
+  <action name="actionSubscribe">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/email.png</normaloff>:/images/email.png</iconset>
+   </property>
+   <property name="text">
+    <string>Subscribe</string>
+   </property>
+  </action>
+  <action name="actionAllowSubcribe">
+   <property name="text">
+    <string>Allow Subcribe</string>
+   </property>
+  </action>
+  <action name="actionEditName">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/accessories-text-editor.png</normaloff>:/images/accessories-text-editor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Name</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit the roster name</string>
+   </property>
+  </action>
+  <action name="actionMoveToNewGroup">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/folder-new.png</normaloff>:/images/folder-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>New Group</string>
+   </property>
+  </action>
+  <action name="actionCopyToNewGroup">
+   <property name="icon">
+    <iconset resource="application.qrc">
+     <normaloff>:/images/folder-new.png</normaloff>:/images/folder-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>New Group</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="application.qrc"/>
+ </resources>
+ <connections/>
+</ui>
