@@ -1,0 +1,7 @@
+cd app/ && ( test -e Makefile || /usr/lib/x86_64-linux-gnu/qt5/bin/qmake /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && make -f Makefile 
+make[1]: se ingresa al directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
+make -f Makefile.Release
+make[2]: se ingresa al directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/MainWindow.o MainWindow.cpp
+make[2]: se sale del directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
+make[1]: se sale del directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»

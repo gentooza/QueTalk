@@ -32,10 +32,12 @@
 #include <QPointer>
 #include <QSystemTrayIcon>
 #include <QStringListModel>
-#include <QXmppClient.h>
 #include <Preferences.h>
-#include <QXmppVCard.h>
 #include <QTranslator>
+
+#include "QXmppVCardIq.h"
+#include "QXmppClient.h"
+#include "QXmppTransferManager.h"
 
 class AddContactDialog;
 class ChatWindow;
@@ -101,7 +103,7 @@ private slots:
     void setRosterIconSize(int);
     void rosterIconResize();
     void rosterViewHiddenUpdate();
-    void vCardReveived(const QXmppVCard &vCard);
+    void vCardReveived(const QXmppVCardIq &vCard);
     void logout();
     void quit();
     void openTransferWindow();
@@ -128,6 +130,9 @@ private:
     Ui::MainWindow ui;
     Preferences m_preferences;
     QXmppClient *m_client;
+    //Added gentooza, qxmpp 0.9.2
+    QXmppTransferManager *manager;
+    //
     InfoEventStackWidget *m_infoEventStackWidget;
     QIcon *m_infoEventNone;
     QIcon *m_infoEventExist;

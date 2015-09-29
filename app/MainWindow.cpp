@@ -25,11 +25,8 @@
  */
 
 #include "MainWindow.h"
-#include "QXmppRoster.h"
 #include "ChatWindow.h"
 #include <QCloseEvent>
-#include "QXmppMessage.h"
-#include "QXmppUtils.h"
 #include <QListView>
 #include <QTreeView>
 #include "UnreadMessageWindow.h"
@@ -39,7 +36,6 @@
 #include "PreferencesDialog.h"
 #include "CloseNoticeDialog.h"
 #include "RosterModel.h"
-#include <QXmppVCardManager.h>
 #include "TransferManagerWindow.h"
 #include <QMessageBox>
 #include <QDialog>
@@ -47,12 +43,18 @@
 #include <QDialogButtonBox>
 #include <ContactInfoDialog.h>
 #include <QDesktopWidget>
-#include <QXmppRosterIq.h>
 #include "AddContactDialog.h"
 #include "InfoEventStackWidget.h"
 #include <QInputDialog>
 #include <QTranslator>
-#include <QXmppLogger.h>
+
+#include "QXmppMessage.h"
+#include "QXmppUtils.h"
+#include "QXmppVCardManager.h"
+#include "QXmppRosterIq.h"
+#include "QXmppRosterManager.h"
+#include "QXmppLogger.h"
+#include "QXmppTransferManager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -72,12 +74,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
     retranslate();
 
-    QXmppLogger::getLogger()->setLoggingType(QXmppLogger::STDOUT);
+    //QXmppLogger::getLogger()->setLoggingType(QXmppLogger::STDOUT);
+    //gentooza 20150929 change for qxmpp v0.9.2
+    QXmppLogger::getLogger()->setLoggingType(QXmppLogger::StdoutLogging);	
 
-    m_client->getConfiguration().setAutoAcceptSubscriptions(false);
-    //m_client->getTransferManager().setSupportedMethods(QXmppTransferJob::InBandMethod);
-    m_client->getTransferManager().setProxy("proxy.eu.jabber.org");
-    //m_client->getTransferManager().setProxyOnly(true);
+
+    ///m_client->getConfiguration().setAutoAcceptSubscriptions(false);
+    //gentooza 20150929 change for qxmpp v0.9.2
+    m_client->configuration().setAutoAcceptSubscriptions(false);
+    
+
+    ////m_client->getTransferManager().setSupportedMethods(QXmppTransferJob::InBandMethod);
+    //m_client->getTransferManager().setProxy("proxy.eu.jabber.org");
+    ////m_client->getTransferManager().setProxyOnly(true);
+    //gentooza 20150929 change for qxmpp v0.9.2
+    manager = new QXmppTransferManager; 
+    manager->setProxy("proxy.eu.jabber.org");
+    m_client->addExtension(manager);
 
     setupTrayIcon();
     ui.presenceComboBox->setVisible(false);
@@ -185,13 +198,14 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(actionCopyToNewGroup()) );
 
     // VCard
-    connect(&m_client->getVCardManager(), SIGNAL(vCardReceived(const QXmppVCard&)),
+//modified gentooza
+    connect(&m_client->vCardManager(), SIGNAL(vCardReceived(const QXmppVCard&)),
             this, SLOT(vCardReveived(const QXmppVCard&)) );
 
     // transfer manager
-    connect(&m_client->getTransferManager(), SIGNAL(fileReceived(QXmppTransferJob*)),
+    connect(m_client->findExtension<QXmppTransferManager>(), SIGNAL(fileReceived(QXmppTransferJob*)),
             this, SLOT(receivedTransferJob(QXmppTransferJob*)) );
-
+//////////////////
     m_rosterTreeView->setModel(m_rosterModel);
 
     if (m_preferences.autoLogin)
@@ -237,8 +251,10 @@ void MainWindow::login()
     m_loginWidget->showState(tr("Login ..."));
 
     ui.presenceComboBox->setCurrentIndex(0);
-    m_client->connectToServer(m_preferences.host, m_preferences.jid,
-                              m_preferences.password, m_preferences.port);
+    //m_client->connectToServer(m_preferences.host, m_preferences.jid,
+    //                          m_preferences.password, m_preferences.port);
+    //gentooza modification qxmpp 0.9.2 20150929
+    m_client->connectToServer(m_preferences.jid,m_preferences.password);
 }
 
 void MainWindow::clientDisconnected()
@@ -255,8 +271,13 @@ void MainWindow::clientConnected()
 void MainWindow::messageReceived(const QXmppMessage& message)
 {
     QString jid = message.from();
-    QString bareJid = jidToBareJid(jid);
-    QString resource = jidToResource(jid);
+    
+    //GENTOOZA MODIFICATION 20150929
+    //QString bareJid = jidToBareJid(jid);
+    //QString resource = jidToResource(jid);
+    QString bareJid = QXmppUtils::jidToBareJid(jid);
+    QString resource = QXmppUtils::jidToResource(jid);
+    
     if (m_chatWindows[jid] != NULL) {
         m_chatWindows[jid]->appendMessage(message);
     } else if (m_chatWindows[bareJid] != NULL) {
@@ -274,7 +295,9 @@ void MainWindow::messageReceived(const QXmppMessage& message)
 
 void MainWindow::presenceReceived(const QXmppPresence &presence)
 {
-    switch (presence.getType()) {
+    //gentooza modification 20150929 qxmpp 0.9.2
+    //switch (presence.getType()) {
+    switch (presence.type()) {
     case QXmppPresence::Subscribe:
         m_infoEventStackWidget->addSubscribeRequest(presence.from());
         m_trayIcon->showMessage(QString(tr("Request")), QString(tr("%1 want to subscribe you")).arg(presence.from()));
@@ -324,8 +347,11 @@ void MainWindow::openChatWindow(const QString &jid)
         connect(chatWindow, SIGNAL(viewContactInfo(QString)),
                 this, SLOT(openContactInfoDialog(QString)) );
 
-        if (m_rosterModel->hasVCard(jidToBareJid(jid)))
-            chatWindow->setVCard(m_rosterModel->getVCard(jidToBareJid(jid)));
+	//gentooza 20150929 qxmpp 0.9.2
+        //if (m_rosterModel->hasVCard(jidToBareJid(jid)))
+        //    chatWindow->setVCard(m_rosterModel->getVCard(jidToBareJid(jid)));
+        if (m_rosterModel->hasVCard(QXmppUtils::jidToBareJid(jid)))
+            chatWindow->setVCard(m_rosterModel->getVCard(QXmppUtils::jidToBareJid(jid)));
 
         m_chatWindows[jid] = chatWindow;
         chatWindow->setWindowTitle(jid);
@@ -337,13 +363,19 @@ void MainWindow::openChatWindow(const QString &jid)
             }
         }
 
+        //gentooza 20150929 qxmpp 0.9.2
+        //QString resource = jidToResource(jid);
         // clean unread state
-        QString resource = jidToResource(jid);
-        if (resource.isEmpty()) {
-            m_rosterModel->messageReadedAll(jidToBareJid(jid));
+        QString resource = QXmppUtils::jidToResource(jid);
+        if (resource.isEmpty()) { 
+            //gentooza 20150929 qxmpp 0.9.2
+            //m_rosterModel->messageReadedAll(jidToBareJid(jid));
+            m_rosterModel->messageReadedAll(QXmppUtils::jidToBareJid(jid));
         } else {
             // resource
-            m_rosterModel->messageReaded(jidToBareJid(jid), jidToResource(jid));
+	    //gentooza 20150929 qxmpp 0.9.2
+            //m_rosterModel->messageReaded(jidToBareJid(jid), jidToResource(jid));
+            m_rosterModel->messageReaded(QXmppUtils::jidToBareJid(jid), QXmppUtils::jidToResource(jid));
         }
 
         // move to screan center
@@ -400,7 +432,10 @@ void MainWindow::actionAddContact()
 
 void MainWindow::actionRemoveContact()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
     if (QMessageBox::warning(this, QString(tr("Remove Contact")),
                          QString(tr("Are you sure to remove contact: %1 ?")).arg(bareJid),
                          QMessageBox::Yes | QMessageBox::Cancel) == QMessageBox::Yes) {
@@ -416,7 +451,10 @@ void MainWindow::actionRemoveContact()
 
 void MainWindow::actionSubscribe()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
     QXmppPresence presence(QXmppPresence::Subscribe);
     presence.setTo(bareJid);
     m_client->sendPacket(presence);
@@ -424,7 +462,10 @@ void MainWindow::actionSubscribe()
 
 void MainWindow::actionUnsubsribe()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
     QXmppPresence presence(QXmppPresence::Unsubscribe);
     presence.setTo(bareJid);
     m_client->sendPacket(presence);
@@ -432,7 +473,10 @@ void MainWindow::actionUnsubsribe()
 
 void MainWindow::actionDropSubsribe()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
     QXmppPresence presence(QXmppPresence::Unsubscribed);
     presence.setTo(bareJid);
     m_client->sendPacket(presence);
@@ -440,7 +484,10 @@ void MainWindow::actionDropSubsribe()
 
 void MainWindow::actionAllowSubsribe()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
     QXmppPresence presence(QXmppPresence::Subscribed);
     presence.setTo(bareJid);
     m_client->sendPacket(presence);
@@ -448,14 +495,19 @@ void MainWindow::actionAllowSubsribe()
 
 void MainWindow::actionEditName()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
-    QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
+    //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+    QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
     bool ok;
     QString name = QInputDialog::getText(this, QString(tr("Edit Name For: %1")).arg(bareJid),
                                          QString(tr("New Name")), QLineEdit::Normal,
                                          entry.name(), &ok);
     if (ok && !name.isEmpty()) {
         QXmppRosterIq iq;
+	//gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq
         iq.setType(QXmppRosterIq::Set);
         entry.setName(name);
         iq.addItem(entry);
@@ -465,13 +517,17 @@ void MainWindow::actionEditName()
 
 void MainWindow::actionMoveToNewGroup()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2
+    //QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+
     bool ok;
     QString group = QInputDialog::getText(this, QString(tr("New Group")),
                                          QString(tr("Group Name")), QLineEdit::Normal,
                                          QString(), &ok);
     if (ok && !group.isEmpty()) {
-        QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+        //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
         QSet<QString> groups = entry.groups();
         groups.remove(m_rosterModel->groupAt(m_rosterTreeView->currentIndex()));
         groups.insert(group);
@@ -485,11 +541,13 @@ void MainWindow::actionMoveToNewGroup()
 
 void MainWindow::actionMoveToGroup()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2 jidToBareJid to QXmppUtils::jidToBareJid
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
     QAction *action = qobject_cast<QAction *>(sender());
     QString group = action->text();
     if (!bareJid.isEmpty() && !group.isEmpty()) {
-        QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+        //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
         QSet<QString> groups = entry.groups();
         groups.remove(m_rosterModel->groupAt(m_rosterTreeView->currentIndex()));
         groups.insert(group);
@@ -502,13 +560,15 @@ void MainWindow::actionMoveToGroup()
 }
 void MainWindow::actionCopyToNewGroup()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2 jidToBareJid to QXmppUtils::jidToBareJid
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
     bool ok;
     QString group = QInputDialog::getText(this, QString(tr("New Group")),
                                          QString(tr("Group Name")), QLineEdit::Normal,
                                          QString(), &ok);
     if (ok && !group.isEmpty()) {
-        QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+        //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
         QSet<QString> groups = entry.groups();
         groups.insert(group);
         entry.setGroups(groups);
@@ -521,11 +581,13 @@ void MainWindow::actionCopyToNewGroup()
 
 void MainWindow::actionCopyToGroup()
 {
-    QString bareJid = jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
+    //gentooza 20150929 qxmpp 0.9.2 jidToBareJid to QXmppUtils::jidToBareJid
+    QString bareJid = QXmppUtils::jidToBareJid(m_rosterModel->jidAt(m_rosterTreeView->currentIndex()));
     QAction *action = qobject_cast<QAction *>(sender());
     QString group = action->text();
     if (!bareJid.isEmpty() && !group.isEmpty()) {
-        QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+        //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
         QSet<QString> groups = entry.groups();
         groups.insert(group);
         entry.setGroups(groups);
@@ -546,12 +608,14 @@ void MainWindow::showEventStack()
 
 void MainWindow::openContactInfoDialog(QString jid)
 {
-    QString bareJid = jidToBareJid(jid);
+     //gentooza 20150929 qxmpp 0.9.2 QXmppUtils::
+    QString bareJid = QXmppUtils::jidToBareJid(jid);
     ContactInfoDialog *dialog;
     if (m_contactInfoDialogs[bareJid] == NULL) {
         dialog = new ContactInfoDialog();
         m_contactInfoDialogs[bareJid] = dialog;
-        QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+        //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
         dialog->setData(entry.name(), jid, m_rosterModel->getVCard(bareJid));
         dialog->move(QApplication::desktop()->screenGeometry().center() - dialog->geometry().center());
     } else {
@@ -806,7 +870,7 @@ void MainWindow::rosterViewHiddenUpdate()
     }
 }
 
-void MainWindow::vCardReveived(const QXmppVCard &vCard)
+void MainWindow::vCardReveived(const QXmppVCardIq &vCard)
 {
     if (m_chatWindows[vCard.from()] != NULL) {
         ChatWindow *window = m_chatWindows[vCard.from()];
@@ -837,8 +901,9 @@ void MainWindow::createTransferJob(const QString &jid, const QString &fileName)
     initTransferWindow();
 
     QString newJid = jid;
-    if (jidToResource(jid).isEmpty()) {
-        QStringList resources = m_client->getRoster().getAllPresencesForBareJid(jid).keys();
+    //gentooza 20150929 qxmpp 0.9.2 QXmppUtils::
+    if (QXmppUtils::jidToResource(jid).isEmpty()) {
+        QStringList resources = m_client->rosterManager().getAllPresencesForBareJid(jid).keys();
         if (resources.isEmpty()) {
             QMessageBox::warning(0, "Contact Offline", "Can not send file to offline contact.");
             return;
@@ -928,21 +993,23 @@ void MainWindow::rosterContextMenu(const QPoint &position)
                 QMenu *subMenu = menu.addMenu(tr("Roster"));
                 // * has bug: auto send subcribe presence when type is 'from', hide it.
                 QString bareJid = m_rosterModel->jidAt(index);
-                QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(bareJid);
+       		//gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        	QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(bareJid);
+
                 switch (entry.subscriptionType()) {
-                case QXmppRoster::QXmppRosterEntry::Both:
+                case QXmppRosterIq::Item::Both:
                     subMenu->addAction(ui.actionUnsubscribe);
                     subMenu->addAction(ui.actionDropSubscribe);
                     break;
-                case QXmppRoster::QXmppRosterEntry::To:
+                case QXmppRosterIq::Item::To:
                     subMenu->addAction(ui.actionUnsubscribe);
                     subMenu->addAction(ui.actionAllowSubcribe);
                     break;
-                case QXmppRoster::QXmppRosterEntry::From:
+                case QXmppRosterIq::Item::From:
                     subMenu->addAction(ui.actionSubscribe);
                     subMenu->addAction(ui.actionDropSubscribe);
                     break;
-                case QXmppRoster::QXmppRosterEntry::None:
+                case QXmppRosterIq::Item::None:
                     subMenu->addAction(ui.actionSubscribe);
                     break;
                 default:
@@ -959,9 +1026,10 @@ void MainWindow::rosterContextMenu(const QPoint &position)
 void MainWindow::initTransferWindow()
 {
     if (m_transferManagerWindow == 0) {
-        m_transferManagerWindow = new TransferManagerWindow(&m_client->getTransferManager(), this);
+        //gentooza 20150929 gettransfermanager change
+        m_transferManagerWindow = new TransferManagerWindow(m_client->findExtension<QXmppTransferManager>(), this);
         m_transferManagerWindow->move(QApplication::desktop()->screenGeometry().center() - m_transferManagerWindow->geometry().center());
-        connect(&m_client->getTransferManager(), SIGNAL(finished(QXmppTransferJob*)),
+        connect(m_client->findExtension<QXmppTransferManager>(), SIGNAL(finished(QXmppTransferJob*)),
                 m_transferManagerWindow, SLOT(deleteFileHandel(QXmppTransferJob*)) );
 
     }
@@ -1009,15 +1077,19 @@ void MainWindow::presenceComboxChange(int index)
 
 void MainWindow::setPresenceOnline()
 {
-    if (m_client->getClientPresence().getStatus().getType() == QXmppPresence::Status::Online
-        && m_client->getClientPresence().getType() == QXmppPresence::Available)
+    //gentooza 20150929 getclientpresence to clientpresence
+    if (m_client->clientPresence().availableStatusType() == QXmppPresence::Online
+        && m_client->clientPresence().type() == QXmppPresence::Available)
         return;
 
     if (ui.presenceComboBox->currentIndex() != 0)
         ui.presenceComboBox->setCurrentIndex(0);
-    QXmppPresence presence = m_client->getClientPresence();
-    presence.getStatus().setType(QXmppPresence::Status::Online);
-    presence.getStatus().setStatusText(QString());
+    //gentooza 20150929 getclientpresence to clientpresence
+    QXmppPresence presence = m_client->clientPresence();
+    //Gentooza 20150929 QXMppPresence has changed, getStatus doesn't exist anymore
+    presence.setAvailableStatusType(QXmppPresence::Online);
+    presence.setStatusText(QString());
+    //
     m_client->setClientPresence(presence);
     reConnect();
     updateTrayIcon();
@@ -1025,84 +1097,94 @@ void MainWindow::setPresenceOnline()
 
 void MainWindow::setPresenceChat()
 {
-    if (m_client->getClientPresence().getStatus().getType() == QXmppPresence::Status::Chat)
+    //gentooza 20150929 it's boring!!
+    if (m_client->clientPresence().availableStatusType() == QXmppPresence::Chat)
         return;
 
     if (ui.presenceComboBox->currentIndex() != 1)
         ui.presenceComboBox->setCurrentIndex(1);
-    QXmppPresence presence = m_client->getClientPresence();
-    presence.getStatus().setType(QXmppPresence::Status::Chat);
-    presence.getStatus().setStatusText(QString());
+//gentooza 20150929 qxmpp 0.9.2 migration
+    QXmppPresence presence = m_client->clientPresence();
+    presence.setAvailableStatusType(QXmppPresence::Chat);
+    presence.setStatusText(QString());
+//
     m_client->setClientPresence(presence);
     reConnect();
     updateTrayIcon();
 }
 
 void MainWindow::setPresenceAway()
-{
-    if (m_client->getClientPresence().getStatus().getType() == QXmppPresence::Status::Away)
+{//gentooza 20150929 qxmpp 0.9.2 migration
+    if (m_client->clientPresence().availableStatusType() == QXmppPresence::Away)
         return;
 
     if (ui.presenceComboBox->currentIndex() != 2)
         ui.presenceComboBox->setCurrentIndex(2);
-    QXmppPresence presence = m_client->getClientPresence();
-    presence.getStatus().setType(QXmppPresence::Status::Away);
-    presence.getStatus().setStatusText(QString());
+//gentooza 20150929 qxmpp 0.9.2 migration
+    QXmppPresence presence = m_client->clientPresence();
+    presence.setAvailableStatusType(QXmppPresence::Away);
+    presence.setStatusText(QString());
+//
     m_client->setClientPresence(presence);
     reConnect();
     updateTrayIcon();
 }
 
 void MainWindow::setPresenceXa()
-{
-    if (m_client->getClientPresence().getStatus().getType() == QXmppPresence::Status::XA)
+{//gentooza 20150929 qxmpp 0.9.2 migration
+    if (m_client->clientPresence().availableStatusType() == QXmppPresence::XA)
         return;
 
     if (ui.presenceComboBox->currentIndex() != 3)
         ui.presenceComboBox->setCurrentIndex(3);
-    QXmppPresence presence = m_client->getClientPresence();
-    presence.getStatus().setType(QXmppPresence::Status::XA);
-    presence.getStatus().setStatusText(QString());
+//gentooza 20150929 qxmpp 0.9.2 migration
+    QXmppPresence presence = m_client->clientPresence();
+    presence.setAvailableStatusType(QXmppPresence::XA);
+    presence.setStatusText(QString());
+//
     m_client->setClientPresence(presence);
     reConnect();
     updateTrayIcon();
 }
 
 void MainWindow::setPresenceDnd()
-{
-    if (m_client->getClientPresence().getStatus().getType() == QXmppPresence::Status::DND)
+{//gentooza 20150929 qxmpp 0.9.2 migration
+    if (m_client->clientPresence().availableStatusType() == QXmppPresence::DND)
         return;
 
     if (ui.presenceComboBox->currentIndex() != 4)
         ui.presenceComboBox->setCurrentIndex(4);
-    QXmppPresence presence = m_client->getClientPresence();
-    presence.getStatus().setType(QXmppPresence::Status::DND);
-    presence.getStatus().setStatusText(QString());
+//gentooza 20150929 qxmpp 0.9.2 migration
+    QXmppPresence presence = m_client->clientPresence();
+    presence.setAvailableStatusType(QXmppPresence::DND);
+    presence.setStatusText(QString());
+//
     m_client->setClientPresence(presence);
     reConnect();
     updateTrayIcon();
 }
 
 void MainWindow::reConnect()
-{
-    if (m_client->getClientPresence().getType() != QXmppPresence::Available) {
+{//gentooza 20150929 qxmpp 0.9.2 migration
+    if (m_client->clientPresence().type() != QXmppPresence::Available) {
         m_client->setClientPresence(QXmppPresence::Available);
-        m_client->connectToServer(m_preferences.host, m_preferences.jid,
-                                  m_preferences.password, m_preferences.port,
-                                  m_client->getClientPresence());
+        m_client->connectToServer(m_preferences.jid,
+                                  m_preferences.password);
     }
 }
 
 void MainWindow::setPresenceOffline()
 {
-    if (m_client->getClientPresence().getStatus().getType() == QXmppPresence::Status::Offline)
+    if (m_client->clientPresence().type() == QXmppPresence::Unavailable)
         return;
 
     if (ui.presenceComboBox->currentIndex() != 5)
         ui.presenceComboBox->setCurrentIndex(5);
-    QXmppPresence presence = m_client->getClientPresence();
-    presence.getStatus().setType(QXmppPresence::Status::Offline);
-    presence.getStatus().setStatusText(QString());
+//gentooza 20150929 qxmpp 0.9.2 migration
+    QXmppPresence presence = m_client->clientPresence();
+    presence.setType(QXmppPresence::Unavailable);
+    presence.setStatusText(QString());
+//
     m_client->setClientPresence(presence);
     clientDisconnect();
     updateTrayIcon();
@@ -1121,26 +1203,26 @@ void MainWindow::updateTrayIcon()
         return;
     }
 
-    if (m_client->getClientPresence().getType() == QXmppPresence::Available) {
-        switch (m_client->getClientPresence().getStatus().getType()) {
-        case QXmppPresence::Status::Away:
-        case QXmppPresence::Status::XA:
+    if (m_client->clientPresence().type() == QXmppPresence::Available) {
+        switch (m_client->clientPresence().availableStatusType()) {
+        case QXmppPresence::Away:
+        case QXmppPresence::XA:
             m_trayIcon->setIcon(QIcon(":/images/im-user-away.png"));
             return;
-        case QXmppPresence::Status::DND:
+        case QXmppPresence::DND:
             m_trayIcon->setIcon(QIcon(":/images/im-user-busy.png"));
             return;
-            /*
-        case QXmppPresence::Status::Invisible:
+            
+        case QXmppPresence::Invisible:
             m_trayIcon->setIcon(QIcon(":/images/im-invisible-user.png"));
             return;
-            */
+            
         default:
             m_trayIcon->setIcon(QIcon(":/images/im-user.png"));
             return;
         }
     }
 
-    if (m_client->getClientPresence().getType() == QXmppPresence::Unavailable)
+    if (m_client->clientPresence().type() == QXmppPresence::Unavailable)
         m_trayIcon->setIcon(QIcon(":/images/im-user-offline.png"));
 }

@@ -31,7 +31,7 @@
 #include "ui_ChatWindow.h"
 #include "QXmppMessage.h"
 #include "Preferences.h"
-#include "QXmppVCard.h"
+#include "QXmppVCardIq.h"
 #include <QPointer>
 
 class QXmppClient;
@@ -40,7 +40,7 @@ class QTimer;
 class QStatusBar;
 class QPushButton;
 class MessageEdit;
-class QXmppVCard;
+class QXmppVCardIq;
 class ContactInfoDialog;
 
 class ChatWindow : public QMainWindow
@@ -50,7 +50,7 @@ public:
     ChatWindow(QString jid, QXmppClient *client, QWidget *parent = 0);
     void appendMessage(const QXmppMessage &);
     void readPref(Preferences *pref);
-    void setVCard(QXmppVCard vCard);
+    void setVCard(QXmppVCardIq vCard);
 
 signals:
     void sendFile(QString jid, QString fileName);
@@ -81,7 +81,7 @@ private:
     QStatusBar *m_statusBar;
     QPushButton *m_sendButton;
     QLabel *m_sendTip;
-    QXmppVCard m_vCard;
+    QXmppVCardIq m_vCard;
     QPointer<ContactInfoDialog> m_contactInfoDialog;
 
     void changeState(QXmppMessage::State);

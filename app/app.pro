@@ -1,3 +1,8 @@
+###new
+include(../lib/qxmpp.pri)
+###
+
+
 TEMPLATE = app
 #TARGET = app
 QT += network xml core widgets gui
@@ -10,20 +15,41 @@ QT += network xml core widgets gui
 
 # Config qxmpp
 CONFIG += console debug_and_release -icu
-INCLUDEPATH += ../lib/QXmppClient/source /usr/include/qt5/QtWidgets/
+##INCLUDEPATH += ../lib/QXmppClient/source 
+#/usr/include/qt5/QtWidgets/
 
-CONFIG(debug, debug|release) {
-    QXMPP_LIB = QXmppClient_d
-    QXMPP_DIR = ../lib/QXmppClient/source/debug
-    TARGET = qtalk_d
-} else {
-    QXMPP_LIB = QXmppClient
-    QXMPP_DIR = ../lib/QXmppClient/source/release
-    TARGET = qtalk
-}
+#CONFIG(debug, debug|release) {
+#   QXMPP_LIB = QXmppClient_d
+#    QXMPP_DIR = ../lib/QXmppClient/source/debug
+#    TARGET = qtalk_d
+#} else {
+#    QXMPP_LIB = QXmppClient
+#    QXMPP_DIR = ../lib/QXmppClient/source/release
+#   TARGET = qtalk
+#}
 
-LIBS += -L$$QXMPP_DIR -l$$QXMPP_LIB
-PRE_TARGETDEPS += $${QXMPP_DIR}/lib$${QXMPP_LIB}.a
+#LIBS += -L$$QXMPP_DIR -l$$QXMPP_LIB
+#PRE_TARGETDEPS += $${QXMPP_DIR}/lib$${QXMPP_LIB}.a
+####_NEW
+INCLUDEPATH += $$QXMPP_INCLUDEPATH
+LIBS += $$QXMPP_LIBS
+###
+##INCLUDEPATH += ../lib/src/client ../lib/src/base
+
+#CONFIG(debug, debug|release) {
+#   QXMPP_LIB = qxmpp
+#    QXMPP_DIR = ../lib/src
+#    TARGET = quetalk_d
+#} else {
+#    QXMPP_LIB = qxmpp
+#    QXMPP_DIR = ../lib/src
+#   TARGET = quetalk
+#}
+
+#LIBS += -L$$QXMPP_DIR -l$$QXMPP_LIB
+#PRE_TARGETDEPS += $${QXMPP_DIR}/lib$${QXMPP_LIB}.a
+
+
 
 # Input
 

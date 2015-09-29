@@ -28,7 +28,7 @@
 #define CONTACTINFODIALOG_H
 
 #include <QDialog>
-#include <QXmppVCard.h>
+#include "QXmppVCardIq.h"
 
 namespace Ui {
     class ContactInfoDialog;
@@ -39,7 +39,7 @@ class ContactInfoDialog : public QDialog {
 public:
     explicit ContactInfoDialog(QWidget *parent = 0);
     ~ContactInfoDialog();
-    void setData(QString name, QString jid, const QXmppVCard &vCard);
+    void setData(QString name, QString jid, const QXmppVCardIq &vCard);
 
 protected:
     void changeEvent(QEvent *e);

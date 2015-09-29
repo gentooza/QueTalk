@@ -25,13 +25,10 @@
  */
 
 #include "ChatWindow.h"
-#include "QXmppClient.h"
-#include "QXmppMessage.h"
-#include "QXmppUtils.h"
 #include <QTime>
 #include <QDomDocument>
 #include "XmppMessage.h"
-#include <QXmppRoster.h>
+
 #include <QCloseEvent>
 #include <QTimer>
 #include <MessageEdit.h>
@@ -41,7 +38,12 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QStandardPaths>
+
 #include <QXmppRpcIq.h>
+#include "QXmppClient.h"
+#include "QXmppMessage.h"
+#include "QXmppUtils.h"
+#include <QXmppRosterIq.h>
 
 ChatWindow::ChatWindow(QString jid, QXmppClient *client, QWidget *parent) :
     QMainWindow(parent),

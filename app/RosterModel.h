@@ -35,7 +35,7 @@ class QXmppClient;
 class QXmppRoster;
 class QXmppPresence;
 class QXmppVCardManager;
-class QXmppVCard;
+class QXmppVCardIq;
 
 class RosterModel : public QAbstractItemModel
 {
@@ -70,7 +70,7 @@ public:
     QList<QModelIndex> allIndex(const QModelIndex &index = QModelIndex()) const;
     bool isIndexHidden(const QModelIndex &index);
     bool hasVCard(const QString &bareJid) const;
-    QXmppVCard getVCard(const QString &bareJid) const; // if no exist, return empty vcard
+    QXmppVCardIq getVCard(const QString &bareJid) const; // if no exist, return empty vcard
     void clear();
     QSet<QString> getGroups() const;
 
@@ -85,7 +85,7 @@ public slots:
 private slots:
     void presenceChangedSlot(const QString &bareJid, const QString &resource);
     void rosterChangedSlot(const QString &bareJid);
-    void vCardRecived(const QXmppVCard&);
+    void vCardRecived(const QXmppVCardIq&);
 
 private:
     QXmppClient *m_client;
@@ -112,7 +112,7 @@ private:
     TreeItem* getItem(const QModelIndex &index) const;
     void sortContact(const QModelIndex &groupIndex);
     QList<QModelIndex> indexsForBareJid(const QString &bareJid); // include all resource
-    QMap<QString, QXmppVCard> m_vCards; // <bareJid, vcard>
+    QMap<QString, QXmppVCardIq> m_vCards; // <bareJid, vcard>
 
     // use for data display
     QString displayData(const QModelIndex &index) const;
