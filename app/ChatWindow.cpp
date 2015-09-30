@@ -38,12 +38,15 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QStandardPaths>
+#include <QBuffer>
+#include <QImageReader>
 
 #include <QXmppRpcIq.h>
 #include "QXmppClient.h"
 #include "QXmppMessage.h"
 #include "QXmppUtils.h"
 #include <QXmppRosterIq.h>
+#include <QXmppRosterManager.h>
 
 ChatWindow::ChatWindow(QString jid, QXmppClient *client, QWidget *parent) :
     QMainWindow(parent),
@@ -76,10 +79,15 @@ ChatWindow::ChatWindow(QString jid, QXmppClient *client, QWidget *parent) :
     setStatusBar(m_statusBar);
 
     // init ui
-    QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(jidToBareJid(m_jid));
+    //QXmppRoster::QXmppRosterEntry entry = m_client->getRoster().getRosterEntry(jidToBareJid(m_jid));
+    //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+    QXmppRosterIq::Item  entry= m_client->rosterManager().getRosterEntry(QXmppUtils::jidToBareJid(m_jid));
+
     ui.name->setText(entry.name());
     ui.jid->setText(m_jid);
-    if (m_client->getRoster().getResources(jidToBareJid(m_jid)).isEmpty())
+    //if (m_client->getRoster().getResources(jidToBareJid(m_jid)).isEmpty())
+    //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+    if (m_client->rosterManager().getResources(QXmppUtils::jidToBareJid(m_jid)).isEmpty())
         ui.photo->setPixmap(QPixmap(":/images/user-identity-grey-100.png"));
     else
         ui.photo->setPixmap(QPixmap(":/images/user-identity-100.png"));
@@ -138,24 +146,35 @@ void ChatWindow::readPref(Preferences *pref)
     m_editor->setIgnoreEnter(pref->enterToSendMessage);
 }
 
-void ChatWindow::setVCard(QXmppVCard vCard)
+void ChatWindow::setVCard(QXmppVCardIq vCard)
 {
     m_vCard = vCard;
     if (!vCard.photo().isEmpty())
-        ui.photo->setPixmap(QPixmap::fromImage(vCard.photoAsImage()));
+        {
+          //gentooza 20150930 QXmppVCardIq has no photoAsImage() method anymore
+          QBuffer buffer;
+          buffer.setData(vCard.photo());
+          buffer.open(QIODevice::ReadOnly);
+          QImageReader imageReader(&buffer);
+          QImage myImage = imageReader.read();
+          //ui.photo->setPixmap(QPixmap::fromImage(vCard.photoAsImage()));
+	  ui.photo->setPixmap(QPixmap::fromImage(myImage));
+        }
 }
 
 void ChatWindow::sendMessage()
 {
     if (m_editor->toPlainText().isEmpty())
         return;
-    XmppMessage message(m_client->getConfiguration().jid(),
+ //gentooza 20150930 no getConfiguration anymore
+    XmppMessage message(m_client->configuration().jid()/*m_client->getConfiguration().jid()*/,
                         m_jid,
                         m_editor->toPlainText());
     message.setHtml(m_editor->toHtml());
     m_client->sendPacket(message);
-
-    QString c_bareJid = m_client->getConfiguration().jidBare();
+    //gentooza 20150930 no getConfiguration anymore
+    //QString c_bareJid = m_client->getConfiguration().jidBare();
+    QString c_bareJid = m_client->configuration().jidBare();
     ui.messageBrowser->append(QString("%1 %2").arg(c_bareJid).arg(QTime::currentTime().toString()));
     ui.messageBrowser->append(m_editor->toHtml());
     m_editor->clear();
@@ -204,20 +223,27 @@ void ChatWindow::changeSelfState(QXmppMessage::State state)
 {
     if (m_selfState != state) {
         m_selfState = state;
-
-        QString resource = jidToResource(m_jid);
-        QString bareJid = jidToBareJid(m_jid);
-        XmppMessage message(m_client->getConfiguration().jid(),
+	//Gentooza 20150930 QXmppUtils class
+//        QString resource = jidToResource(m_jid);
+//        QString bareJid = jidToBareJid(m_jid);
+        QString resource = QXmppUtils::jidToResource(m_jid);
+        QString bareJid = QXmppUtils::jidToBareJid(m_jid);
+    //gentooza 20150930 no getConfiguration anymore
+        XmppMessage message(m_client->configuration().jid(),
                             m_jid);
         message.setState(state);
         if (resource.isEmpty()) {
             // if breaJid at less have one resource
-            if (!m_client->getRoster().getAllPresencesForBareJid(bareJid).isEmpty()) {
+            //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+            //if (!m_client->getRoster().getAllPresencesForBareJid(bareJid).isEmpty()) {
+            if (!m_client->rosterManager().getAllPresencesForBareJid(bareJid).isEmpty()) {
                 m_client->sendPacket(message);
             }
         } else {
             // if resource no unavable
-            if (!m_client->getRoster().getPresence(bareJid, resource).from().isEmpty()) {
+            //gentooza 20150929 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+            //if (!m_client->getRoster().getPresence(bareJid, resource).from().isEmpty()) {
+            if (!m_client->rosterManager().getPresence(bareJid, resource).from().isEmpty()) {
                 m_client->sendPacket(message);
             }
         }
