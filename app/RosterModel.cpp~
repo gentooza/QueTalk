@@ -314,10 +314,6 @@ void RosterModel::setClient(QXmppClient *client)
     //        this, SLOT(vCardRecived(const QXmppVCard&)) );
     connect((const QObject*)m_roster, SIGNAL(presenceChanged(const QString, const QString)),
                     this, SLOT(presenceChangedSlot(const QString, const QString)), Qt::AutoConnection);
-    connect((const QObject*)m_roster, SIGNAL(rosterReceived()),
-            this, SLOT(parseRoster()) , Qt::AutoConnection);
-    connect((const QObject*)m_vCardManager, SIGNAL(vCardReceived(const QXmppVCard&)),
-            this, SLOT(vCardRecived(const QXmppVCard&)) , Qt::AutoConnection);
 }
 
 void RosterModel::parseRoster()

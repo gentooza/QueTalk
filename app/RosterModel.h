@@ -28,11 +28,14 @@
 #define ROSTERMODEL_H
 
 #include <QAbstractItemModel>
+#include <QDebug>
 #include "Preferences.h"
+
+#include "QXmppClient.h"
 
 class TreeItem;
 class QXmppClient;
-class QXmppRoster;
+class QXmppRosterIq;
 class QXmppPresence;
 class QXmppVCardManager;
 class QXmppVCardIq;
@@ -89,7 +92,7 @@ private slots:
 
 private:
     QXmppClient *m_client;
-    QXmppRoster *m_roster;
+    QXmppRosterManager *m_roster;
     QXmppVCardManager *m_vCardManager;
     TreeItem* m_rootItem;
     TreeItem* m_noGroupItem;
