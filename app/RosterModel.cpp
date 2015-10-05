@@ -27,9 +27,12 @@
 #include "RosterModel.h"
 #include <QIcon>
 #include <QObject>
+#include <QBuffer>
+#include <QImageReader>
 
 #include "QXmppClient.h"
 #include "QXmppVCardManager.h"
+#include "QXmppRosterManager.h"
 #include "QXmppVCardIq.h"
 #include "QXmppRosterIq.h"
 #include "QXmppUtils.h"
@@ -323,7 +326,6 @@ void RosterModel::setClient(QXmppClient *client)
 void RosterModel::parseRoster()
 {
     initNoGroup();
-
     foreach (QString bareJid, m_roster->getRosterBareJids()) {
 //gentooza 20150930 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
 //        QXmppRosterIq::QXmppRosterEntry entry = m_roster->getRosterEntry(bareJid);
@@ -352,7 +354,7 @@ void RosterModel::parseRoster()
     emit parseDone();
 }
 
-void RosterModel::vCardRecived(const QXmppVCard &vCard)
+void RosterModel::vCardRecived(const QXmppVCardIq &vCard)
 {
     m_vCards[vCard.from()] = vCard;
     foreach (QModelIndex index, indexsForBareJid(vCard.from())) {
@@ -407,9 +409,20 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
             if (item->isUnread()) {
                 return QIcon(":/images/mail-unread-new.png");
             }
+//gentooza 20151005 photoasimage doesn't exist anymore
+            //if (m_vCards.contains(jidAt(index))
+            //    && !m_vCards[jidAt(index)].photoAsImage().isNull()) {
+            QBuffer buffer;
+            buffer.setData(m_vCards[jidAt(index)].photo());
+            buffer.open(QIODevice::ReadOnly);
+            QImageReader imageReader(&buffer);
+            QImage image = imageReader.read();
             if (m_vCards.contains(jidAt(index))
-                && !m_vCards[jidAt(index)].photoAsImage().isNull()) {
-                QImage image = m_vCards[jidAt(index)].photoAsImage().scaled(QSize(64, 64));
+                && !image.isNull()) {
+          
+                image = image.scaled(QSize(64, 64));  
+
+                //QImage image = m_vCards[jidAt(index)].photoAsImage().scaled(QSize(64, 64));
                 return QIcon(QPixmap::fromImage(image));
             } else {
                 if (item->childCount() == 0)
@@ -489,9 +502,11 @@ void RosterModel::rosterChangedSlot(const QString &bareJid)
         qDebug() << QString("[RosterModel] Add New roster: ") << bareJid;
         newContact(bareJid);
     } else {
-        QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(bareJid);
+//gentooza 20151005 qxmpp 0.9.2 QXmppRoster to QXmppRosterIq and modified QXmppClient
+        //QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(bareJid);
+        QXmppRosterIq::Item  entry= m_roster->getRosterEntry(bareJid);
 
-        if (entry.subscriptionType() == QXmppRoster::QXmppRosterEntry::Remove) {
+        if (entry.subscriptionType() == QXmppRosterIq::Item::Remove) {
             // clear
             qDebug() << QString("[RosterModel] Clear %1").arg(bareJid);
             foreach (QModelIndex index, indexs) {
