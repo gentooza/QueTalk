@@ -23,6 +23,9 @@
  * along with QTalk.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+#include <QBuffer>
+#include <QImage>
+#include <QImageReader>
 
 #include "ContactInfoDialog.h"
 #include "ui_ContactInfoDialog.h"
@@ -41,14 +44,25 @@ ContactInfoDialog::~ContactInfoDialog()
     delete ui;
 }
 
-void ContactInfoDialog::setData(QString name, QString jid, const QXmppVCard &vCard)
+//gentooza 20151006 QXmppVcard to QXmppVcardIq
+void ContactInfoDialog::setData(QString name, QString jid, const QXmppVCardIq &vCard)
 {
     ui->name->setText(name);
     ui->jid->setText(jid);
     if (vCard.photo().isEmpty())
         ui->photo->setPixmap(QPixmap(":/images/user-identity-100.png"));
     else
-        ui->photo->setPixmap(QPixmap::fromImage(vCard.photoAsImage()));
+	{
+//gentooza 20151006 VCard photoasimage doesn't exist anymore
+		QBuffer buffer;
+		buffer.setData(vCard.photo());
+		buffer.open(QIODevice::ReadOnly);
+		QImageReader imageReader(&buffer);
+		QImage myImage = imageReader.read();
+	
+        	ui->photo->setPixmap(QPixmap::fromImage(myImage));
+
+	}
     ui->nickName->setText(vCard.nickName());
     ui->fullName->setText(vCard.fullName());
     ui->firstName->setText(vCard.firstName());

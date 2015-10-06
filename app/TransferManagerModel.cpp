@@ -25,6 +25,7 @@
  */
 
 #include "TransferManagerModel.h"
+#include <QTextStream>
 
 TransferManagerModel::TransferManagerModel(QObject *parent) :
     QAbstractTableModel(parent)

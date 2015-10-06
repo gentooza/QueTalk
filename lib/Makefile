@@ -31,133 +31,133 @@ SUBTARGETS    =  \
 
 sub-src-qmake_all:  FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile
+	cd src/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile
 	cd src/ && $(MAKE) -f Makefile qmake_all
 sub-src: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-src-make_first-ordered: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-src-make_first: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-src-all-ordered: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-src-all: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-src-clean-ordered: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-src-clean: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-src-distclean-ordered: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-src-distclean: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-src-install_subtargets-ordered: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-src-install_subtargets: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-src-uninstall_subtargets-ordered: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-src-uninstall_subtargets: FORCE
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-tests-qmake_all: sub-src-qmake_all FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile
+	cd tests/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile
 	cd tests/ && $(MAKE) -f Makefile qmake_all
 sub-tests: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-tests-make_first-ordered: sub-src-make_first-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-tests-make_first: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-tests-all-ordered: sub-src-all-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-tests-all: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-tests-clean-ordered: sub-src-clean-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-tests-clean: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-tests-distclean-ordered: sub-src-distclean-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-tests-distclean: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-tests-install_subtargets-ordered: sub-src-install_subtargets-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-tests-install_subtargets: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-tests-uninstall_subtargets-ordered: sub-src-uninstall_subtargets-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-tests-uninstall_subtargets: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-examples-qmake_all: sub-tests-qmake_all FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile
+	cd examples/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile
 	cd examples/ && $(MAKE) -f Makefile qmake_all
 sub-examples: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-examples-make_first-ordered: sub-tests-make_first-ordered  FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-examples-make_first: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-examples-all-ordered: sub-tests-all-ordered  FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-examples-all: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-examples-clean-ordered: sub-tests-clean-ordered  FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-examples-clean: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-examples-distclean-ordered: sub-tests-distclean-ordered  FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-examples-distclean: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-examples-install_subtargets-ordered: sub-tests-install_subtargets-ordered  FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-examples-install_subtargets: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-examples-uninstall_subtargets-ordered: sub-tests-uninstall_subtargets-ordered  FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-examples-uninstall_subtargets: FORCE
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: qxmpp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -323,13 +323,13 @@ uninstall_subtargets: sub-src-uninstall_subtargets-ordered sub-tests-uninstall_s
 
 sub-src-check_ordered:
 	@test -d src/ || mkdir -p src/
-	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src/src.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd src/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src/src.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-tests-check_ordered: sub-src-check_ordered 
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd tests/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/tests.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-examples-check_ordered: sub-tests-check_ordered 
 	@test -d examples/ || mkdir -p examples/
-	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd examples/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/examples.pro -o Makefile ) && $(MAKE) -f Makefile check
 check: sub-src-check_ordered sub-tests-check_ordered sub-examples-check_ordered
 install: install_subtargets  FORCE
 

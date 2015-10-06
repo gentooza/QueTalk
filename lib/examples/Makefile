@@ -37,229 +37,229 @@ SUBTARGETS    =  \
 
 sub-example_0_connected-qmake_all:  FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile
+	cd example_0_connected/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile
 	cd example_0_connected/ && $(MAKE) -f Makefile qmake_all
 sub-example_0_connected: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_0_connected-make_first: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_0_connected-all: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_0_connected-clean: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_0_connected-distclean: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_0_connected-install_subtargets: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_0_connected-uninstall_subtargets: FORCE
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_1_echoClient-qmake_all:  FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile
+	cd example_1_echoClient/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile
 	cd example_1_echoClient/ && $(MAKE) -f Makefile qmake_all
 sub-example_1_echoClient: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_1_echoClient-make_first: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_1_echoClient-all: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_1_echoClient-clean: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_1_echoClient-distclean: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_1_echoClient-install_subtargets: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_1_echoClient-uninstall_subtargets: FORCE
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_2_rosterHandling-qmake_all:  FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile
+	cd example_2_rosterHandling/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile
 	cd example_2_rosterHandling/ && $(MAKE) -f Makefile qmake_all
 sub-example_2_rosterHandling: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_2_rosterHandling-make_first: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_2_rosterHandling-all: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_2_rosterHandling-clean: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_2_rosterHandling-distclean: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_2_rosterHandling-install_subtargets: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_2_rosterHandling-uninstall_subtargets: FORCE
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_3_transferHandling-qmake_all:  FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile
+	cd example_3_transferHandling/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile
 	cd example_3_transferHandling/ && $(MAKE) -f Makefile qmake_all
 sub-example_3_transferHandling: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_3_transferHandling-make_first: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_3_transferHandling-all: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_3_transferHandling-clean: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_3_transferHandling-distclean: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_3_transferHandling-install_subtargets: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_3_transferHandling-uninstall_subtargets: FORCE
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_5_rpcInterface-qmake_all:  FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile
+	cd example_5_rpcInterface/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile
 	cd example_5_rpcInterface/ && $(MAKE) -f Makefile qmake_all
 sub-example_5_rpcInterface: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_5_rpcInterface-make_first: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_5_rpcInterface-all: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_5_rpcInterface-clean: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_5_rpcInterface-distclean: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_5_rpcInterface-install_subtargets: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_5_rpcInterface-uninstall_subtargets: FORCE
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_6_rpcClient-qmake_all:  FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile
+	cd example_6_rpcClient/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile
 	cd example_6_rpcClient/ && $(MAKE) -f Makefile qmake_all
 sub-example_6_rpcClient: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_6_rpcClient-make_first: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_6_rpcClient-all: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_6_rpcClient-clean: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_6_rpcClient-distclean: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_6_rpcClient-install_subtargets: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_6_rpcClient-uninstall_subtargets: FORCE
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_7_archiveHandling-qmake_all:  FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile
+	cd example_7_archiveHandling/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile
 	cd example_7_archiveHandling/ && $(MAKE) -f Makefile qmake_all
 sub-example_7_archiveHandling: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_7_archiveHandling-make_first: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_7_archiveHandling-all: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_7_archiveHandling-clean: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_7_archiveHandling-distclean: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_7_archiveHandling-install_subtargets: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_7_archiveHandling-uninstall_subtargets: FORCE
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_8_server-qmake_all:  FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile
+	cd example_8_server/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile
 	cd example_8_server/ && $(MAKE) -f Makefile qmake_all
 sub-example_8_server: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_8_server-make_first: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_8_server-all: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_8_server-clean: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_8_server-distclean: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_8_server-install_subtargets: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_8_server-uninstall_subtargets: FORCE
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-example_9_vCard-qmake_all:  FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile
+	cd example_9_vCard/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile
 	cd example_9_vCard/ && $(MAKE) -f Makefile qmake_all
 sub-example_9_vCard: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-example_9_vCard-make_first: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-example_9_vCard-all: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-example_9_vCard-clean: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-example_9_vCard-distclean: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-example_9_vCard-install_subtargets: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-example_9_vCard-uninstall_subtargets: FORCE
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: examples.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -425,31 +425,31 @@ uninstall_subtargets: sub-example_0_connected-uninstall_subtargets sub-example_1
 
 sub-example_0_connected-check:
 	@test -d example_0_connected/ || mkdir -p example_0_connected/
-	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_0_connected/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_0_connected/example_0_connected.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_1_echoClient-check:
 	@test -d example_1_echoClient/ || mkdir -p example_1_echoClient/
-	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_1_echoClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_1_echoClient/example_1_echoClient.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_2_rosterHandling-check:
 	@test -d example_2_rosterHandling/ || mkdir -p example_2_rosterHandling/
-	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_2_rosterHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_2_rosterHandling/example_2_rosterHandling.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_3_transferHandling-check:
 	@test -d example_3_transferHandling/ || mkdir -p example_3_transferHandling/
-	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_3_transferHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_3_transferHandling/example_3_transferHandling.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_5_rpcInterface-check:
 	@test -d example_5_rpcInterface/ || mkdir -p example_5_rpcInterface/
-	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_5_rpcInterface/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_5_rpcInterface/example_5_rpcInterface.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_6_rpcClient-check:
 	@test -d example_6_rpcClient/ || mkdir -p example_6_rpcClient/
-	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_6_rpcClient/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_6_rpcClient/example_6_rpcClient.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_7_archiveHandling-check:
 	@test -d example_7_archiveHandling/ || mkdir -p example_7_archiveHandling/
-	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_7_archiveHandling/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_7_archiveHandling/example_7_archiveHandling.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_8_server-check:
 	@test -d example_8_server/ || mkdir -p example_8_server/
-	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_8_server/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_8_server/example_8_server.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-example_9_vCard-check:
 	@test -d example_9_vCard/ || mkdir -p example_9_vCard/
-	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd example_9_vCard/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/examples/example_9_vCard/example_9_vCard.pro -o Makefile ) && $(MAKE) -f Makefile check
 check: sub-example_0_connected-check sub-example_1_echoClient-check sub-example_2_rosterHandling-check sub-example_3_transferHandling-check sub-example_5_rpcInterface-check sub-example_6_rpcClient-check sub-example_7_archiveHandling-check sub-example_8_server-check sub-example_9_vCard-check
 install: install_subtargets  FORCE
 

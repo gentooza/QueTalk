@@ -41,12 +41,12 @@
 #include <QBuffer>
 #include <QImageReader>
 
-#include <QXmppRpcIq.h>
+#include "QXmppRpcIq.h"
 #include "QXmppClient.h"
 #include "QXmppMessage.h"
 #include "QXmppUtils.h"
-#include <QXmppRosterIq.h>
-#include <QXmppRosterManager.h>
+#include "QXmppRosterIq.h"
+#include "QXmppRosterManager.h"
 
 ChatWindow::ChatWindow(QString jid, QXmppClient *client, QWidget *parent) :
     QMainWindow(parent),

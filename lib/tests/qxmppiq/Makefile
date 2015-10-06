@@ -12,13 +12,13 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR=\"/home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/tests/qxmppiq\"
+DEFINES       = -DQXMPP_STATIC -DQT_NO_DEBUG -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR=\"/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/tests/qxmppiq\"
 CFLAGS        = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../../tests -I../../src/base -I../../src/client -I../../src/server -I/usr/include/qt5 -I/usr/include/qt5/QtTest -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtCore -I.
 LINK          = g++
-LFLAGS        = -m64 -Wl,-O1 -Wl,-rpath,/home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src
-LIBS          = $(SUBLIBS) -L../../src -lqxmpp -lQt5Test -L/usr/lib/x86_64-linux-gnu -lQt5Xml -lQt5Network -lQt5Core -lpthread 
+LFLAGS        = -m64 -Wl,-O1 -Wl,-rpath,/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src
+LIBS          = $(SUBLIBS) -L../../src -lqxmpp -L/usr/lib/x86_64-linux-gnu -lQt5Test -lQt5Xml -lQt5Network -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake
@@ -245,10 +245,10 @@ Makefile: qxmppiq.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.c
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		qxmppiq.pro \
 		../../src/libqxmpp.prl \
-		/usr/lib/x86_64-linux-gnu/libQt5Test.prl \
-		/usr/lib/x86_64-linux-gnu/libQt5Core.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Xml.prl \
-		/usr/lib/x86_64-linux-gnu/libQt5Network.prl
+		/usr/lib/x86_64-linux-gnu/libQt5Core.prl \
+		/usr/lib/x86_64-linux-gnu/libQt5Network.prl \
+		/usr/lib/x86_64-linux-gnu/libQt5Test.prl
 	$(QMAKE) -o Makefile qxmppiq.pro
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf:
@@ -333,10 +333,10 @@ Makefile: qxmppiq.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.c
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 qxmppiq.pro:
 ../../src/libqxmpp.prl:
-/usr/lib/x86_64-linux-gnu/libQt5Test.prl:
-/usr/lib/x86_64-linux-gnu/libQt5Core.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Xml.prl:
+/usr/lib/x86_64-linux-gnu/libQt5Core.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Network.prl:
+/usr/lib/x86_64-linux-gnu/libQt5Test.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile qxmppiq.pro
 

@@ -12,13 +12,13 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQXMPP_STATIC -DQT_NO_DEBUG -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../../src/base -I../../src/client -I../../src/server -I/usr/include/qt5 -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I.
 LINK          = g++
-LFLAGS        = -m64 -Wl,-O1 -Wl,-rpath,/home/prointegra/Documentos/desarrollo/respositorios_git_dev/qxmpp/src
-LIBS          = $(SUBLIBS) -L../../src -L/usr/X11R6/lib64 -lqxmpp -lQt5Xml -L/usr/lib/x86_64-linux-gnu -lQt5Network -lQt5Gui -lQt5Core -lGL -lpthread 
+LFLAGS        = -m64 -Wl,-O1 -Wl,-rpath,/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src
+LIBS          = $(SUBLIBS) -L../../src -L/usr/X11R6/lib64 -lqxmpp -L/usr/lib/x86_64-linux-gnu -lQt5Xml -lQt5Network -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake

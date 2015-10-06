@@ -33,183 +33,49 @@ cd app/ && ( test -e Makefile || /usr/lib/x86_64-linux-gnu/qt5/bin/qmake /home/p
 make[1]: se ingresa al directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
 make -f Makefile.Release
 make[2]: se ingresa al directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
-g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/RosterModel.o RosterModel.cpp
-RosterModel.cpp: In member function ‘void RosterModel::newContact(const QString&)’:
-RosterModel.cpp:555:5: error: ‘QXmppRoster’ has not been declared
-     QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(bareJid);
-     ^
-RosterModel.cpp:555:35: error: expected ‘;’ before ‘entry’
-     QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(bareJid);
-                                   ^
-RosterModel.cpp:556:9: error: ‘entry’ was not declared in this scope
-     if (entry.groups().isEmpty()) {
-         ^
-In file included from /usr/include/qt5/QtCore/qatomic.h:42:0,
-                 from /usr/include/qt5/QtCore/qvariant.h:45,
-                 from /usr/include/qt5/QtCore/qabstractitemmodel.h:45,
-                 from /usr/include/qt5/QtCore/QAbstractItemModel:1,
-                 from RosterModel.h:30,
-                 from RosterModel.cpp:27:
-/usr/include/qt5/QtCore/qglobal.h:857:45: error: template argument 1 is invalid
- for (QForeachContainer<__typeof__(container)> _container_(container); \
-                                             ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:857:58: error: invalid type in declaration before ‘(’ token
- for (QForeachContainer<__typeof__(container)> _container_(container); \
-                                                          ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:858:19: error: request for member ‘brk’ in ‘_container_’, which is of non-class type ‘int’
-      !_container_.brk && _container_.i != _container_.e;              \
-                   ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:858:38: error: request for member ‘i’ in ‘_container_’, which is of non-class type ‘int’
-      !_container_.brk && _container_.i != _container_.e;              \
-                                      ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:858:55: error: request for member ‘e’ in ‘_container_’, which is of non-class type ‘int’
-      !_container_.brk && _container_.i != _container_.e;              \
-                                                       ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:859:38: error: request for member ‘brk’ in ‘_container_’, which is of non-class type ‘int’
-      __extension__  ({ ++_container_.brk; ++_container_.i; }))                       \
-                                      ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:859:57: error: request for member ‘i’ in ‘_container_’, which is of non-class type ‘int’
-      __extension__  ({ ++_container_.brk; ++_container_.i; }))                       \
-                                                         ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:860:34: error: request for member ‘i’ in ‘_container_’, which is of non-class type ‘int’
-     for (variable = *_container_.i;; __extension__ ({--_container_.brk; break;}))
-                                  ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-/usr/include/qt5/QtCore/qglobal.h:860:68: error: request for member ‘brk’ in ‘_container_’, which is of non-class type ‘int’
-     for (variable = *_container_.i;; __extension__ ({--_container_.brk; break;}))
-                                                                    ^
-/usr/include/qt5/QtCore/qglobal.h:911:21: note: in expansion of macro ‘Q_FOREACH’
- #    define foreach Q_FOREACH
-                     ^
-RosterModel.cpp:559:9: note: in expansion of macro ‘foreach’
-         foreach (QString groupName, entry.groups()) {
-         ^
-RosterModel.cpp: In member function ‘QString RosterModel::displayData(const QModelIndex&) const’:
-RosterModel.cpp:656:9: error: ‘QXmppVCard’ was not declared in this scope
-         QXmppVCard vcard = getVCard(item->data());
-         ^
-RosterModel.cpp:656:20: error: expected ‘;’ before ‘vcard’
-         QXmppVCard vcard = getVCard(item->data());
-                    ^
-RosterModel.cpp:659:28: error: ‘vcard’ was not declared in this scope
-         QString nickName = vcard.nickName();
-                            ^
-RosterModel.cpp: In member function ‘QString RosterModel::toolTipData(const QModelIndex&) const’:
-RosterModel.cpp:697:5: error: ‘QXmppRoster’ has not been declared
-     QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(jidToBareJid(jidAt(index)));
-     ^
-RosterModel.cpp:697:35: error: expected ‘;’ before ‘entry’
-     QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(jidToBareJid(jidAt(index)));
-                                   ^
-RosterModel.cpp:699:13: error: ‘entry’ was not declared in this scope
-     switch (entry.subscriptionType()) {
-             ^
-RosterModel.cpp:700:10: error: ‘QXmppRoster’ has not been declared
-     case QXmppRoster::QXmppRosterEntry::NotSet:
-          ^
-RosterModel.cpp:703:10: error: ‘QXmppRoster’ has not been declared
-     case QXmppRoster::QXmppRosterEntry::None:
-          ^
-RosterModel.cpp:706:10: error: ‘QXmppRoster’ has not been declared
-     case QXmppRoster::QXmppRosterEntry::Both:
-          ^
-RosterModel.cpp:709:10: error: ‘QXmppRoster’ has not been declared
-     case QXmppRoster::QXmppRosterEntry::From:
-          ^
-RosterModel.cpp:712:10: error: ‘QXmppRoster’ has not been declared
-     case QXmppRoster::QXmppRosterEntry::To:
-          ^
-RosterModel.cpp:715:10: error: ‘QXmppRoster’ has not been declared
-     case QXmppRoster::QXmppRosterEntry::Remove:
-          ^
-RosterModel.cpp:729:40: error: ‘entry’ was not declared in this scope
-         return QString(tr("Name: ")) + entry.name() + "\n"
-                                        ^
-RosterModel.cpp:737:40: error: ‘entry’ was not declared in this scope
-         return QString(tr("Name: ")) + entry.name() + "\n"
-                                        ^
-RosterModel.cpp: In member function ‘QString RosterModel::statusTextAt(const QModelIndex&) const’:
-RosterModel.cpp:754:81: error: ‘jidToBareJid’ was not declared in this scope
-         QXmppPresence presence = m_roster->getPresence(jidToBareJid(jidAt(index)),
-                                                                                 ^
-RosterModel.cpp:755:82: error: ‘jidToResource’ was not declared in this scope
-                                                        jidToResource(jidAt(index)));
-                                                                                  ^
-RosterModel.cpp:756:22: error: ‘class QXmppPresence’ has no member named ‘getStatus’
-         if (presence.getStatus().getTypeStr().isEmpty())
-                      ^
-RosterModel.cpp:759:50: error: ‘class QXmppPresence’ has no member named ‘getStatus’
-             return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
-                                                  ^
-RosterModel.cpp:759:89: error: ‘class QXmppPresence’ has no member named ‘getStatus’
-             return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
-                                                                                         ^
-RosterModel.cpp:765:26: error: ‘class QXmppPresence’ has no member named ‘getStatus’
-             if (presence.getStatus().getTypeStr().isEmpty())
-                          ^
-RosterModel.cpp:768:54: error: ‘class QXmppPresence’ has no member named ‘getStatus’
-                 return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
-                                                      ^
-RosterModel.cpp:768:93: error: ‘class QXmppPresence’ has no member named ‘getStatus’
-                 return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
-                                                                                             ^
-RosterModel.cpp: At global scope:
-RosterModel.cpp:898:1: error: ‘QXmppVCard’ does not name a type
- QXmppVCard RosterModel::getVCard(const QString &bareJid) const
- ^
-RosterModel.cpp: In member function ‘QString RosterModel::statusTextAt(const QModelIndex&) const’:
-RosterModel.cpp:773:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-make[2]: *** [release/RosterModel.o] Error 1
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/TransferManagerWindow.o TransferManagerWindow.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/TransferManagerModel.o TransferManagerModel.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/AddContactDialog.o AddContactDialog.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/InfoEventStackWidget.o InfoEventStackWidget.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/InfoEventSubscribeRequest.o InfoEventSubscribeRequest.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name application application.qrc -o release/qrc_application.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/qrc_application.o release/qrc_application.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include MainWindow.h -o release/moc_MainWindow.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_MainWindow.o release/moc_MainWindow.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ChatWindow.h -o release/moc_ChatWindow.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_ChatWindow.o release/moc_ChatWindow.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include RosterModel.h -o release/moc_RosterModel.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_RosterModel.o release/moc_RosterModel.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include UnreadMessageWindow.h -o release/moc_UnreadMessageWindow.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_UnreadMessageWindow.o release/moc_UnreadMessageWindow.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include UnreadMessageModel.h -o release/moc_UnreadMessageModel.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_UnreadMessageModel.o release/moc_UnreadMessageModel.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include LoginWidget.h -o release/moc_LoginWidget.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_LoginWidget.o release/moc_LoginWidget.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include PreferencesDialog.h -o release/moc_PreferencesDialog.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_PreferencesDialog.o release/moc_PreferencesDialog.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include PrefAccount.h -o release/moc_PrefAccount.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_PrefAccount.o release/moc_PrefAccount.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include PrefGeneral.h -o release/moc_PrefGeneral.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_PrefGeneral.o release/moc_PrefGeneral.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CloseNoticeDialog.h -o release/moc_CloseNoticeDialog.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_CloseNoticeDialog.o release/moc_CloseNoticeDialog.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include PrefChatWindow.h -o release/moc_PrefChatWindow.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_PrefChatWindow.o release/moc_PrefChatWindow.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include MessageEdit.h -o release/moc_MessageEdit.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_MessageEdit.o release/moc_MessageEdit.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ContactInfoDialog.h -o release/moc_ContactInfoDialog.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_ContactInfoDialog.o release/moc_ContactInfoDialog.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include TransferManagerWindow.h -o release/moc_TransferManagerWindow.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_TransferManagerWindow.o release/moc_TransferManagerWindow.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include TransferManagerModel.h -o release/moc_TransferManagerModel.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_TransferManagerModel.o release/moc_TransferManagerModel.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include AddContactDialog.h -o release/moc_AddContactDialog.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_AddContactDialog.o release/moc_AddContactDialog.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include InfoEventStackWidget.h -o release/moc_InfoEventStackWidget.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_InfoEventStackWidget.o release/moc_InfoEventStackWidget.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include InfoEventSubscribeRequest.h -o release/moc_InfoEventSubscribeRequest.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQXMPP_SHARED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../lib/src/base -I../lib/src/client -I../lib/src/server -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -Irelease -I. -o release/moc_InfoEventSubscribeRequest.o release/moc_InfoEventSubscribeRequest.cpp
+g++ -m64 -Wl,-O1 -o app release/main.o release/MainWindow.o release/ChatWindow.o release/XmppMessage.o release/RosterModel.o release/UnreadMessageWindow.o release/UnreadMessageModel.o release/LoginWidget.o release/PreferencesDialog.o release/PrefAccount.o release/Preferences.o release/PrefWidget.o release/PrefGeneral.o release/CloseNoticeDialog.o release/PrefChatWindow.o release/MessageEdit.o release/ContactInfoDialog.o release/TransferManagerWindow.o release/TransferManagerModel.o release/AddContactDialog.o release/InfoEventStackWidget.o release/InfoEventSubscribeRequest.o release/qrc_application.o release/moc_MainWindow.o release/moc_ChatWindow.o release/moc_RosterModel.o release/moc_UnreadMessageWindow.o release/moc_UnreadMessageModel.o release/moc_LoginWidget.o release/moc_PreferencesDialog.o release/moc_PrefAccount.o release/moc_PrefGeneral.o release/moc_CloseNoticeDialog.o release/moc_PrefChatWindow.o release/moc_MessageEdit.o release/moc_ContactInfoDialog.o release/moc_TransferManagerWindow.o release/moc_TransferManagerModel.o release/moc_AddContactDialog.o release/moc_InfoEventStackWidget.o release/moc_InfoEventSubscribeRequest.o   -L/usr/X11R6/lib64 -lqxmpp -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Xml -lQt5Network -lQt5Gui -lQt5Core -lGL -lpthread 
 make[2]: se sale del directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
-make[1]: *** [release] Error 2
 make[1]: se sale del directorio «/home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app»
-make: *** [sub-app-make_first-ordered] Error 2

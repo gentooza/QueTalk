@@ -552,7 +552,8 @@ void RosterModel::rosterChangedSlot(const QString &bareJid)
 
 void RosterModel::newContact(const QString &bareJid)
 {
-    QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(bareJid);
+ //gentooza 20151005 qxmpp 0.9.2 QXmppRosterIq and item
+    QXmppRosterIq::Item entry = m_roster->getRosterEntry(bareJid);
     if (entry.groups().isEmpty()) {
         insertRosterToGroup(bareJid, m_noGroupItem->data());
     } else {
@@ -653,7 +654,7 @@ QString RosterModel::displayData(const QModelIndex &index) const
     if (item->type() == RosterModel::group) {
         return QString("%1 [ %2 / %3 ]").arg(item->data()).arg(item->childCount(true)).arg(item->childCount());
     } else if (item->type() == RosterModel::contact) {
-        QXmppVCard vcard = getVCard(item->data());
+        QXmppVCardIq vcard = getVCard(item->data());
         QString name;
         QString rosterName = m_roster->getRosterEntry(item->data()).name();
         QString nickName = vcard.nickName();
@@ -693,26 +694,28 @@ QString RosterModel::toolTipData(const QModelIndex &index) const
 
     if (type == group)
         return QString();
-
-    QXmppRoster::QXmppRosterEntry entry = m_roster->getRosterEntry(jidToBareJid(jidAt(index)));
+//gentooza 20151006 QXmppRosterIq and Item. added QXMppUtils too
+    QXmppRosterIq::Item entry = m_roster->getRosterEntry(QXmppUtils::jidToBareJid(jidAt(index)));
     QString subscriptionStr = "";
     switch (entry.subscriptionType()) {
-    case QXmppRoster::QXmppRosterEntry::NotSet:
+//gentooza 20151006 switch case redone to match QXmppRosterIq::Item
+    //case QXmppRoster::QXmppRosterEntry::NotSet:
+    case QXmppRosterIq::Item::NotSet:
         subscriptionStr = QString(tr("NotSet"));
         break;
-    case QXmppRoster::QXmppRosterEntry::None:
+    case QXmppRosterIq::Item::None:
         subscriptionStr = QString(tr("None"));
         break;
-    case QXmppRoster::QXmppRosterEntry::Both:
+    case QXmppRosterIq::Item::Both:
         subscriptionStr = QString(tr("Both"));
         break;
-    case QXmppRoster::QXmppRosterEntry::From:
+    case QXmppRosterIq::Item::From:
         subscriptionStr = QString(tr("From"));
         break;
-    case QXmppRoster::QXmppRosterEntry::To:
+    case QXmppRosterIq::Item::To:
         subscriptionStr = QString(tr("To"));
         break;
-    case QXmppRoster::QXmppRosterEntry::Remove:
+    case QXmppRosterIq::Item::Remove:
         subscriptionStr = QString(tr("Remove"));
         break;
     }
@@ -751,21 +754,30 @@ QString RosterModel::statusTextAt(const QModelIndex &index) const
         return QString();
 
     if (item->type() == resource) {
-        QXmppPresence presence = m_roster->getPresence(jidToBareJid(jidAt(index)),
-                                                       jidToResource(jidAt(index)));
-        if (presence.getStatus().getTypeStr().isEmpty())
+//gentooza 20151006 QXMppUtils included
+        QXmppPresence presence = m_roster->getPresence(QXmppUtils::jidToBareJid(jidAt(index)),
+                                                       QXmppUtils::jidToResource(jidAt(index)));
+//gentooza 20151006 qXmppPresence get status doesn't exist anymore
+        //if (presence.getStatus().getTypeStr().isEmpty())
+        if (presence.statusText().isEmpty())
             return QString();
         else
-            return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
+//gentooza 20151006 qXmppPresence get status doesn't exist anymore
+            //return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
+            return QString("%1 %2").arg(presence.statusText()).arg(presence.statusText());
     } else {
         if (item->childCount() == 0) {
             return QString(tr("Offline"));
         } else if (item->childCount() == 1) {
             QXmppPresence presence = m_roster->getPresence(item->data(), item->child(0)->data());
-            if (presence.getStatus().getTypeStr().isEmpty())
+//gentooza 20151006 qXmppPresence get status doesn't exist anymore
+//            if (presence.getStatus().getTypeStr().isEmpty())
+            if (presence.statusText().isEmpty())
                 return QString();
             else
-                return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
+//gentooza 20151006 qXmppPresence get status doesn't exist anymore
+                //return QString("%1 %2").arg(presence.getStatus().getTypeStr()).arg(presence.getStatus().getStatusText());
+            return QString("%1 %2").arg(presence.statusText()).arg(presence.statusText());
         } else {
             return QString(tr("Multi Status"));
         }
@@ -895,12 +907,12 @@ bool RosterModel::hasVCard(const QString &bareJid) const
     return m_vCards.contains(bareJid);
 }
 
-QXmppVCard RosterModel::getVCard(const QString &bareJid) const
+QXmppVCardIq RosterModel::getVCard(const QString &bareJid) const
 {
     if (hasVCard(bareJid))
         return m_vCards[bareJid];
     else
-        return QXmppVCard();
+        return QXmppVCardIq();
 }
 
 void RosterModel::clear()

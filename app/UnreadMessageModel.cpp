@@ -25,9 +25,10 @@
  */
 
 #include "UnreadMessageModel.h"
-#include "QXmppUtils.h"
 #include <QTextStream>
 
+#include "QXmppUtils.h"
+//gentooza 20151006 QXmppUtils fixed!
 UnreadMessageModel::UnreadMessageModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -35,7 +36,7 @@ UnreadMessageModel::UnreadMessageModel(QObject *parent)
 
 void UnreadMessageModel::add(const QXmppMessage &message)
 {
-    m_messageStore[jidToBareJid(message.from())] << message;
+    m_messageStore[QXmppUtils::jidToBareJid(message.from())] << message;
     //modification to reset() function, to match qt5, I don't know what really reset() does, to improve
     QTextStream newclass;
     newclass.reset();
@@ -44,8 +45,8 @@ void UnreadMessageModel::add(const QXmppMessage &message)
 
 QList<QXmppMessage> UnreadMessageModel::take(QString jid)
 {
-    QString resource = jidToResource(jid);
-    QString bareJid = jidToBareJid(jid);
+    QString resource = QXmppUtils::jidToResource(jid);
+    QString bareJid = QXmppUtils::jidToBareJid(jid);
     QList<QXmppMessage> results;
 
     if (resource.isEmpty()) {
@@ -53,7 +54,7 @@ QList<QXmppMessage> UnreadMessageModel::take(QString jid)
     } else {
         QList<QXmppMessage> mid = m_messageStore.take(bareJid);
         foreach (QXmppMessage message, mid) {
-            if (jidToResource(message.from()) == resource) {
+            if (QXmppUtils::jidToResource(message.from()) == resource) {
                 results << message;
             } else {
                 add(message);
@@ -89,7 +90,7 @@ QVariant UnreadMessageModel::data(const QModelIndex &index, int role) const
 
 bool UnreadMessageModel::hasUnread(const QString &jid) const
 {
-    return m_messageStore.contains(jidToBareJid(jid));
+    return m_messageStore.contains(QXmppUtils::jidToBareJid(jid));
 }
 
 bool UnreadMessageModel::hasAnyUnread() const
