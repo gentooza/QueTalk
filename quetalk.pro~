@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
 #SUBDIRS = app lib
-SUBDIRS = app
+SUBDIRS += app lib
+
 CONFIG += ordered -icu
 
 QT += widgets

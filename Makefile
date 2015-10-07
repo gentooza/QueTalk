@@ -24,91 +24,91 @@ SYMLINK       = ln -f -s
 DEL_DIR       = rmdir
 MOVE          = mv -f
 SUBTARGETS    =  \
-		sub-app \
+		sub-lib \
 		sub-app
 
 
-sub-app-qmake_all:  FORCE
+sub-lib-qmake_all:  FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile
+	cd lib/ && $(MAKE) -f Makefile qmake_all
+sub-lib: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-lib-make_first-ordered: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-lib-make_first: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-lib-all-ordered: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-lib-all: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-lib-clean-ordered: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-lib-clean: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-lib-distclean-ordered: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-lib-distclean: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-lib-install_subtargets-ordered: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-lib-install_subtargets: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-lib-uninstall_subtargets-ordered: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-lib-uninstall_subtargets: FORCE
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-app-qmake_all: sub-lib-qmake_all FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile
 	cd app/ && $(MAKE) -f Makefile qmake_all
 sub-app: FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile
-sub-app-make_first-ordered: FORCE
+sub-app-make_first-ordered: sub-lib-make_first-ordered  FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-app-make_first: FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile 
-sub-app-all-ordered: FORCE
+sub-app-all-ordered: sub-lib-all-ordered  FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-app-all: FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile all
-sub-app-clean-ordered: FORCE
+sub-app-clean-ordered: sub-lib-clean-ordered  FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-app-clean: FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile clean
-sub-app-distclean-ordered: FORCE
+sub-app-distclean-ordered: sub-lib-distclean-ordered  FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-app-distclean: FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile distclean
-sub-app-install_subtargets-ordered: FORCE
+sub-app-install_subtargets-ordered: sub-lib-install_subtargets-ordered  FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-app-install_subtargets: FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile install
-sub-app-uninstall_subtargets-ordered: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
-sub-app-uninstall_subtargets: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
-sub-app-qmake_all: sub-app-qmake_all FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile
-	cd app/ && $(MAKE) -f Makefile qmake_all
-sub-app: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile
-sub-app-make_first-ordered: sub-app-make_first-ordered  FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile 
-sub-app-make_first: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile 
-sub-app-all-ordered: sub-app-all-ordered  FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile all
-sub-app-all: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile all
-sub-app-clean-ordered: sub-app-clean-ordered  FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile clean
-sub-app-clean: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile clean
-sub-app-distclean-ordered: sub-app-distclean-ordered  FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile distclean
-sub-app-distclean: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile distclean
-sub-app-install_subtargets-ordered: sub-app-install_subtargets-ordered  FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile install
-sub-app-install_subtargets: FORCE
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile install
-sub-app-uninstall_subtargets-ordered: sub-app-uninstall_subtargets-ordered  FORCE
+sub-app-uninstall_subtargets-ordered: sub-lib-uninstall_subtargets-ordered  FORCE
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-app-uninstall_subtargets: FORCE
@@ -265,23 +265,23 @@ quetalk.pro:
 qmake: FORCE
 	@$(QMAKE) -o Makefile quetalk.pro
 
-qmake_all: sub-app-qmake_all sub-app-qmake_all FORCE
+qmake_all: sub-lib-qmake_all sub-app-qmake_all FORCE
 
-make_first: sub-app-make_first-ordered sub-app-make_first-ordered FORCE
-all: sub-app-all-ordered sub-app-all-ordered FORCE
-clean: sub-app-clean-ordered sub-app-clean-ordered FORCE
-distclean: sub-app-distclean-ordered sub-app-distclean-ordered FORCE
+make_first: sub-lib-make_first-ordered sub-app-make_first-ordered FORCE
+all: sub-lib-all-ordered sub-app-all-ordered FORCE
+clean: sub-lib-clean-ordered sub-app-clean-ordered FORCE
+distclean: sub-lib-distclean-ordered sub-app-distclean-ordered FORCE
 	-$(DEL_FILE) Makefile
-install_subtargets: sub-app-install_subtargets-ordered sub-app-install_subtargets-ordered FORCE
-uninstall_subtargets: sub-app-uninstall_subtargets-ordered sub-app-uninstall_subtargets-ordered FORCE
+install_subtargets: sub-lib-install_subtargets-ordered sub-app-install_subtargets-ordered FORCE
+uninstall_subtargets: sub-lib-uninstall_subtargets-ordered sub-app-uninstall_subtargets-ordered FORCE
 
-sub-app-check_ordered:
+sub-lib-check_ordered:
+	@test -d lib/ || mkdir -p lib/
+	cd lib/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/lib.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-app-check_ordered: sub-lib-check_ordered 
 	@test -d app/ || mkdir -p app/
 	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile check
-sub-app-check_ordered: sub-app-check_ordered 
-	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/app/app.pro -o Makefile ) && $(MAKE) -f Makefile check
-check: sub-app-check_ordered sub-app-check_ordered
+check: sub-lib-check_ordered sub-app-check_ordered
 install: install_subtargets  FORCE
 
 uninstall:  uninstall_subtargets FORCE

@@ -1,0 +1,10 @@
+##0.0.2 (2015-10-07)
+-------------------
+* migrated app from qxmpp 0.1.0 to 0.9.2
+* headers redone
+* changelog, authors, and readme added or modified
+
+##0.0.1 (2015-09-29)
+-------------------
+* forked original qtalk to quetalk (https://github.com/chloerei/qtalk)
+* migrated original app to QT5

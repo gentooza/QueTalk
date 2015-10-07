@@ -1,21 +1,17 @@
-###new
-##include(../lib/qxmpp.pri)
-###
+
 
 
 TEMPLATE = app
-TARGET = quetalk
+TARGET = release/QueTalk
 QT += network xml core widgets gui
 
 
-INCLUDEPATH += ../lib/src/client ../lib/src/base
+INCLUDEPATH += ../lib/qxmpp/src/client ../lib/qxmpp/src/base
+#static linking qxmpp
+QXMPP_LIB+=../lib/qxmpp/src/libqxmpp.a
 
-QXMPP_LIB+=../lib/src/libqxmpp.a
-#QXMPP_DIR+=../lib/src
-#LIBS += -L$$QXMPP_DIR -l$$QXMPP_LIB
 LIBS += $$QXMPP_LIB
 PRE_TARGETDEPS += $$QXMPP_LIB
-#PRE_TARGETDEPS += $${QXMPP_DIR}/lib$${QXMPP_LIB}.so
 
 
 

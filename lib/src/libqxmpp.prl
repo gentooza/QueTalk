@@ -1,6 +1,0 @@
-QMAKE_PRL_BUILD_DIR = /home/prointegra/Documentos/desarrollo/respositorios_git_dev/QueTalk/lib/src
-QMAKE_PRO_INPUT = src.pro
-QMAKE_PRL_TARGET = libqxmpp.a
-QMAKE_PRL_CONFIG = lex yacc exceptions depend_includepath testcase_targets import_plugins import_qpa_plugin qt warn_on release link_prl incremental gdb_dwarf_index qpa no_mocdepend release qt_no_framework linux unix posix gcc staticlib create_pc create_prl no_install_prl have_target static staticlib thread moc resources
-QMAKE_PRL_VERSION = 0.9.2
-QMAKE_PRL_LIBS = -lQt5Xml -L/usr/lib/x86_64-linux-gnu -lQt5Network -lQt5Core -lpthread  
